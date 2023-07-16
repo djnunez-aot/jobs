@@ -1,8 +1,12 @@
-from flask import request, jsonify
-from my_project.scraper.scraper import my_scrape_function
+from flask import Blueprint, request
+from scrapers.zip_recruiter_scraper import scrape_jobs
 
-def my_route_function():
-    url = request.json.get('url')
-    result = my_scrape_function(url)
-    # You might want to parse the result into JSON format, depends on your requirements.
-    return jsonify(result), 200
+api = Blueprint('api', __name__)
+
+@api.route('/scrape', methods=['POST'])
+def scrape():
+    data = request.get_json()
+    location = data.get('location')
+    job_title = data.get('job_title')
+    results = scrape_jobs(location, job_title)
+    return results
