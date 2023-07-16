@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from scrapers.zip_recruiter_scraper import scrape_jobs
+from scrapers.init import scrape_jobs
 
 api = Blueprint('api', __name__)
 
