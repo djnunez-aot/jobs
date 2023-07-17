@@ -2,6 +2,7 @@
 
 from real_python_scraper import scrape_realpython
 from indeed_scraper import scrape_indeed
+from pprint import pprint
 
 
 # def scrape_jobs(location, job_title):
@@ -15,5 +16,5 @@ from indeed_scraper import scrape_indeed
 results_realpython = scrape_realpython("Software Developer", "AA")
 # results_indeed = scrape_indeed("Software Developer", "New York, NY")
 
-print(results_realpython)
+pprint(results_realpython)
 # print(results_indeed)

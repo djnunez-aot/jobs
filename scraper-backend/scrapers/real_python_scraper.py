@@ -1,9 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import logging
-
-# Create a logger
-logger = logging.getLogger(__name__)
 
 
 def scrape_realpython(job_keywords, location):
@@ -52,6 +48,6 @@ def scrape_realpython(job_keywords, location):
                     }
                 )
 
-    logger.info(f"Scraped {len(jobs)} job listings")
+    print(f"Scraped {len(jobs)} job listings")
 
     return jobs
