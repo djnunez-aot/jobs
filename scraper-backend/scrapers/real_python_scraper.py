@@ -1,18 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 
+# Define the URL
+url = f"https://realpython.github.io/fake-jobs/"
 
-def scrape_realpython(job_keywords, location):
-    print(f"Scraping job listings for {job_keywords} in {location}...")
+
+def scrape_realpython(job_keywords, job_location):
+    print(f"Scraping job listings for {job_keywords} in {job_location}...")
 
     # Format job title and location for the URL
     job_keywords = job_keywords.split()
-    location = location.replace(" ", "+").replace(",", "%2C")
 
     print(job_keywords)
-
-    # Define the URL
-    url = f"https://realpython.github.io/fake-jobs/"
 
     print(f"Sending a GET request to: {url}")
 
@@ -38,7 +37,7 @@ def scrape_realpython(job_keywords, location):
         post_date = job.find("time").get_text()
 
         for keyword in job_keywords:
-            if keyword in title:
+            if keyword in title and job_location in location:
                 jobs.append(
                     {
                         "title": title,
