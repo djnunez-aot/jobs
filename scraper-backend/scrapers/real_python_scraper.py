@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 url = f"https://realpython.github.io/fake-jobs/"
 
 
-def scrape_realpython(job_search_keywords, job_search_locations):
+def scrape_realpython(job_search_locations, job_search_keywords):
     print(
         f"Scraping job listings for {job_search_keywords} in {job_search_locations}..."
     )
@@ -41,24 +41,9 @@ def scrape_realpython(job_search_keywords, job_search_locations):
         title_keywords = title.split()
         location_keyword = location.split()
 
-        # for job_keyword in job_search_keywords:
-        #     if job_keyword in title:
-        #         for job_location in job_search_locations:
-        #             if job_location in location:
-        #                 jobs.append(
-        #                     {
-        #                         "title": title,
-        #                         "company": company,
-        #                         "location": location,
-        #                         "post_date": post_date,
-        #                     }
-        #                 )
-
         if (bool(set(job_search_keywords) & set(title_keywords))) and (
             bool(set(job_search_locations) & set(location_keyword))
         ):
-            print(title_keywords)
-            print(location_keyword)
             jobs.append(
                 {
                     "title": title,
