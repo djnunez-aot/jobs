@@ -1,9 +1,9 @@
 from flask import Blueprint, request
-from scrapers.init import scrape_jobs
+from scrapers import scrape_jobs
 
 api = Blueprint('api', __name__)
 
-@api.route('/scrape', methods=['POST'])
+@api.route('/api/scrape', methods=['POST'])
 def scrape():
     data = request.get_json()
     location = data.get('location')

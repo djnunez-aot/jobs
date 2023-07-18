@@ -13,5 +13,6 @@ export const fetchJobs = async ({ job_title, location }: any): Promise<any> => {
             }
             return response.json()
         })
-        .then(data => data);
+        .then(data => data)
+        .catch(err => console.error('Fetch Error: ', err)); // Log any fetch errors
 }
