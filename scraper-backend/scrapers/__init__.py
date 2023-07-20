@@ -11,4 +11,4 @@ def scrape_jobs(location, job_title):
     pprint(results)
 
 
-scrape_jobs(["AA", "AE"], "Software Developer")
+scrape_jobs(["AA", "AE"], "Software Developer Python")
